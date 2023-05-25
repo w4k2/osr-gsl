@@ -5,12 +5,12 @@ import torch
 from tqdm import tqdm
 from torchvision import transforms
 from torchosr.data import CIFAR10_base
-from torchosr.architectures import osrci_lower_stack
+from torchosr.architectures import alexNet32_lower_stack
 from torchosr.utils import get_softmax_epsilon, get_openmax_epsilon
 from models.GSL import GSL
 
 def getls():
-    return osrci_lower_stack(n_out_channels=64, depth=3, img_size_x=32)
+    return alexNet32_lower_stack(n_out_channels=64)
 
 # Modelling parameters
 learning_rate = [1e-3, 1e-3, 1e-2]
@@ -86,5 +86,5 @@ for config_idx, (kkc, uuc) in enumerate(config):
                     pbar.update(1)
                     
                     print(config_idx, fold, model_id, results[:,config_idx, fold, model_id, t])                    
-                torch.save(results, 'results/e-compare_c10_osrci.pt')
+                torch.save(results, 'results/e-compare_c10_alex.pt')
 pbar.close()
