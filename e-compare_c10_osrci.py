@@ -9,6 +9,8 @@ from torchosr.architectures import osrci_lower_stack
 from torchosr.utils import get_softmax_epsilon, get_openmax_epsilon
 from models.GSL import GSL
 
+torch.set_num_threads(4)
+
 def getls():
     return osrci_lower_stack(n_out_channels=64, depth=3, img_size_x=32)
 
