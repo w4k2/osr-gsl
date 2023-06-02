@@ -117,4 +117,5 @@ for metric_idx, metric in enumerate(['inner', 'outer', 'HP', 'overall']):
                     pass      
                 
     plt.savefig('foo.png')
-    plt.savefig('fig/gsl-calibration-size-%i.png' % metric_idx)
+    plt.savefig('fig/gsl-calibration-size-%i.png' % metric_idx)    
+    plt.savefig('fig/gsl-calibration-size-%i.eps' % metric_idx)

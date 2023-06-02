@@ -44,5 +44,11 @@ for i in range(5):
 
 ax[0,0].legend(ncols=3, frameon=False)
 
+for a in ax.ravel():
+    a.spines['top'].set_visible(False)
+    a.spines['right'].set_visible(False)
+
 plt.tight_layout()
 plt.savefig('foo.png')
+plt.savefig('fig/compare-c10.png')
+plt.savefig('fig/compare-c10.eps')
