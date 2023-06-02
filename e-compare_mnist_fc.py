@@ -9,6 +9,8 @@ from torchosr.architectures import fc_lower_stack
 from torchosr.utils import get_softmax_epsilon, get_openmax_epsilon
 from models.GSL import GSL
 
+torch.set_num_threads(4)
+
 def getls():
     return fc_lower_stack(depth=1, img_size_x=28, n_out_channels=64)
 
@@ -63,7 +65,7 @@ for config_idx, (kkc, uuc) in enumerate(config):
             methods = [
             osr.models.TSoftmax(lower_stack=getls(), n_known=len(kkc), epsilon=get_softmax_epsilon(len(kkc))),
             osr.models.Openmax(lower_stack=getls(), n_known=len(kkc), epsilon=get_openmax_epsilon(len(kkc))),
-            GSL(lower_stack=getls(), n_known=len(kkc), sigma=1.2, n_generated=.5, normal=True),
+            GSL(lower_stack=getls(), n_known=len(kkc), sigma=3, n_generated=1/len(kkc), normal=True),
             ]
             
             for model_id, model in enumerate(methods):                         
