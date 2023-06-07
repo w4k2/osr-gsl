@@ -40,7 +40,7 @@ for metric_idx, metric in enumerate(['inner', 'outer', 'HP', 'overall']):
 
     global_ax = plt.subplot(222)
     global_ax.set_ylabel('known classes')
-    global_ax.set_xlabel('best sigma')
+    global_ax.set_xlabel('best alpha')
     global_ax.grid(ls=":")
     global_ax.spines['top'].set_visible(False)
     global_ax.spines['right'].set_visible(False)
