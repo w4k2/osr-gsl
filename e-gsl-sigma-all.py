@@ -40,7 +40,7 @@ results = torch.zeros((4, len(config), n_splits, q, epochs))
 pbar = tqdm(total=len(config)*n_splits*q*epochs)
 
 # Iterating configurations
-for config_idx, (kkc, uuc) in enumerate(config):        
+for config_idx, (kkc, uuc) in enumerate(config):
         # Iterate divisions
         for fold in range(n_splits):
             train_data, test_data = get_train_test(base, 
@@ -57,7 +57,7 @@ for config_idx, (kkc, uuc) in enumerate(config):
             for sigma_id, sigma in enumerate(sigmas):
             
                 # Initialize model
-                model = GSL(n_known=len(kkc), lower_stack=fc_lower_stack(depth=1, img_size_x=28, n_out_channels=64), sigma=sigma, n_generated=0.5, normal=True) 
+                model = GSL(n_known=len(kkc), lower_stack=fc_lower_stack(depth=1, img_size_x=28, n_out_channels=64), sigma=sigma, n_generated=1/(len(kkc)), normal=True) 
             
                 # Initialize loss function
                 loss_fn = torch.nn.CrossEntropyLoss()
