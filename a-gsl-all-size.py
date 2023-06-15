@@ -34,9 +34,9 @@ config, openness = configure_division(base,
 # cmaps = ['cividis', 'coolwarm', 'magma', 'jet']
 cmaps = ['Blues', 'Greens', 'Purples', 'Reds']
 cmaps_ = [plt.cm.Blues(np.linspace(0,1,2)[1]), plt.cm.Greens(np.linspace(0,1,2)[1]), plt.cm.Purples(np.linspace(0,1,2)[1]), plt.cm.Reds(np.linspace(0,1,2)[1])]
-for metric_idx, metric in enumerate(['inner', 'outer', 'HP', 'overall']):
-    fig, ax = plt.subplots(8,8,figsize=(12,12), sharex=True, sharey=True)
-    plt.suptitle('GSL | %s' % metric)
+for metric_idx, metric in enumerate(['Inner', 'Outer', 'Halfpoint', 'Overall']):
+    fig, ax = plt.subplots(8,8,figsize=(9,9), sharex=True, sharey=True)
+    plt.suptitle('%s score' % metric)
 
     global_ax = plt.subplot(222)
     global_ax.set_ylabel('known classes')
@@ -71,7 +71,7 @@ for metric_idx, metric in enumerate(['inner', 'outer', 'HP', 'overall']):
             
             aa = ax[11-kkc_idx-2, uuc_idx-1]        
             im = aa.imshow(outer_accumulator, aspect='auto', vmax=1, vmin=0, cmap=cmaps[metric_idx])
-            step = 3
+            step = 4
             aa.set_yticks(np.arange(0,q,step), 
                         ['%.2f' % s for s in sizes.numpy()[::step]])
             aa.set_xticks(np.linspace(0,epochs, 4).astype(int))
