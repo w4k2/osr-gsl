@@ -100,7 +100,7 @@ for m_id, m in enumerate(models):
     print(np.unique(aa, return_counts=True))
     
     ax[m_id].scatter(space[:,0], space[:,1], c=cols[aa], alpha=0.02)
-    ax[m_id].scatter(X[:,0], X[:,1], c=cols[y])
+    ax[m_id].scatter(X[y!=0][:,0], X[y!=0][:,1], c=cols[y[y!=0]])
     ax[m_id].set_title(labels[m_id])
 
 plt.tight_layout()
