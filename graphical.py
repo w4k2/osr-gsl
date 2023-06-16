@@ -39,7 +39,7 @@ def ls():
         nn.ReLU(),
         )
 
-X, y = make_classification(n_samples=200, n_features=2, n_informative=2, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1)
+X, y = make_classification(n_samples=200, n_features=2, n_informative=2, n_redundant=0, n_repeated=0, n_classes=3, n_clusters_per_class=1)
 base = Make_classification_base(root='data', X=X, y=y)
 
 kkc = [1, 2]
@@ -96,6 +96,8 @@ fig, ax = plt.subplots(1,3,figsize=(12,4))
 
 for m_id, m in enumerate(models):
     aa = m.predict(space)
+    
+    print(np.unique(aa, return_counts=True))
     
     ax[m_id].scatter(space[:,0], space[:,1], c=cols[aa], alpha=0.02)
     ax[m_id].scatter(X[:,0], X[:,1], c=cols[y])
