@@ -160,3 +160,13 @@ class GSL(OSRModule):
             print('Outer metric : %.3f' % outer_score)
             
         return inner_score, outer_score, inner_score_harry, inner_score_overall
+
+
+    def predict(self, X): 
+        with torch.no_grad():
+
+            logits = self(X)
+            pred_overall = nn.Softmax(dim=1)(logits).argmax(1)
+
+            return pred_overall
+            
