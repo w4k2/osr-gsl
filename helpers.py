@@ -1,6 +1,6 @@
 from torchvision import transforms
-from torchosr.data import MNIST_base, SVHN_base, CIFAR10_base, CIFAR100_base, Omniglot_base, OutlierDataset
-from torchosr.models.architectures import osrci_lower_stack, alexNet32_lower_stack, fc_lower_stack
+from torchosr.data import MNIST_base, SVHN_base, CIFAR10_base, CIFAR100_base
+from torchosr.models.architectures import osrci_lower_stack, fc_lower_stack
 from torch import nn
 from torchosr.utils.base import inverse_transform
 

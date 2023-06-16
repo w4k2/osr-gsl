@@ -6,7 +6,6 @@ from tqdm import tqdm
 from scipy.ndimage import gaussian_filter
 import matplotlib.pyplot as plt
 import numpy as np
-import time
 
 # CONFIG x FOLD x EPSILON-QUANT+1 x EPOCH+1
 results = torch.load('results/gsl-all.pt')
